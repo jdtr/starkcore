@@ -1,0 +1,120 @@
+@import './partials/config';
+
+header {
+    width: 100%;
+    background-color: white;
+    padding: 5px 15px;
+    margin-bottom: 50px; 
+}
+.cont-logo {
+    @media (max-width: 991px) {
+        text-align: center;
+    }
+}
+.btn-mobile {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background-color: $colorBlue;
+    color: white;
+    border: none;
+    span {
+        position: absolute;
+        width: 25px;
+        height: 2px;
+        top: 50%;
+        left: 50%;
+        background-color: white;
+        transition: background-color .2s linear;
+        transform: translate(-50%, -50%);
+        &:before, &:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            left: 0;
+            transition: transform .2s linear;
+        }
+        &:before {
+            top: -8px;
+        }
+        &:after {
+            top: 8px;
+        }
+    }
+    &.is-active {
+        span {
+            background-color: transparent;
+            &:before, &:after {
+                top: 0;
+            }
+            &:before {
+                transform: rotate(45deg);
+            }
+            &:after {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+    // Responsive
+    @media ( min-width: 575px ) {
+        display: none;
+    }
+}
+
+.navigation {
+    background-color: white;
+
+    //Responisve
+    @media ( max-width: 575px ) {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .2s cubic-bezier(0.39, 0.575, 0.565, 1);
+        &.is-active {
+            max-height: 600px;
+        }
+    }
+}
+.navigation-list {
+    display: flex;
+    flex-wrap:wrap; 
+    align-items: center;
+    li {
+        flex-grow:1;
+        text-align: center;
+    }
+    a, i {
+        display: block;
+        color: $colorBlue;
+    }
+    i {
+        font-size: 18px;
+        margin-bottom: 6px;
+        color: currentColor;
+        transition: transform .2s linear;
+    }
+    a {
+        padding: 20px 0;
+        &:hover {
+            i {
+                transform: rotateY(180deg);
+            }
+        }
+    }
+    .active {
+        background-color: $colorBlue;
+        color: white;
+    }
+
+    //responisve
+    @media ( max-width: 575px ) {
+        margin-top: 20px;
+        li {
+            width: 100%;
+        }
+    }
+}
