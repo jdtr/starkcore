@@ -1,2 +1,2 @@
 # starkcore
-Prueba técnica 
+Para poder ver el código ubicarse en la rama dev.
