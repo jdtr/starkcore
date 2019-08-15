@@ -1,0 +1,2 @@
+# starkcore
+Prueba técnica 
